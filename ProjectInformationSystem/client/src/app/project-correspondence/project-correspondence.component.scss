@@ -1,0 +1,121 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  padding: 20px;
+  background-color: #f4f4f4;
+}
+
+.container {
+  max-width: 900px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: auto;
+  margin-top: 50px;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-top: 10px;
+}
+
+input,
+select,
+textarea,
+button {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Button group styles */
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.button-group button {
+  width: auto;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button {
+  background-color: #ff8c00;
+  color: white;
+}
+
+button:hover {
+  background-color: #e07b00;
+}
+.editdelete{
+  background: transparent;
+      border: none;
+      color: red;
+      cursor: pointer;
+      font-size: 18px;
+}
+
+.new-btn {
+  background-color: #6c757d;
+  color: white;
+}
+
+.new-btn:hover {
+  background-color: #5a6268;
+}
+
+.table-container {
+  margin-top: 30px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #ff8c00;
+  color: white;
+}
+
+.delete-icon {
+  color: red;
+  cursor: pointer;
+}
+
+.delete-icon:hover {
+  color: darkred;
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 100%;
+    padding: 15px;
+  }
+  .button-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .button-group button {
+    width: 100%;
+  }
+}

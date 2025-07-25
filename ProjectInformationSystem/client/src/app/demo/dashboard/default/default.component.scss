@@ -1,0 +1,85 @@
+/* Container holding all projects */
+.projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
+  background-color: #f5f7fa;
+}
+
+/* Individual project card */
+.project {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+  padding: 20px;
+  width: 320px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.project:hover {
+  transform: translateY(-5px);
+}
+
+/* Heading style */
+.project h3 {
+  font-size: 18px;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+/* Info paragraph */
+.project .info {
+  font-size: 14px;
+  margin: 6px 0;
+  color: #444;
+}
+
+/* Status */
+.status {
+  color: green;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* Progress bar section */
+.progress p {
+  margin: 6px 0 4px;
+  font-size: 13px;
+  color: #333;
+}
+
+.progress-bar {
+  background-color: #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 10px;
+  margin-bottom: 10px;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #3498db;
+  transition: width 0.5s ease-in-out;
+}
+
+/* Image styling */
+.project img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 10px 0;
+  object-fit: cover;
+}
+
+/* Link styling */
+.project a {
+  color: #0077cc;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.project a:hover {
+  text-decoration: underline;
+}

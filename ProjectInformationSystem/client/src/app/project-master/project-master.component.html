@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Master Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        padding: 20px;
+        background-color: #f4f4f4;
+      }
+
+      .container {
+        max-width: 800px;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin: auto;
+        margin-top: 50px;
+      }
+
+      label {
+        font-weight: bold;
+        display: block;
+        margin-top: 10px;
+      }
+
+      input,
+      select,
+      textarea {
+        width: calc(100% - 20px);
+        padding: 8px;
+        margin: 5px 0 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        display: inline-block;
+      }
+
+      .unit {
+        display: inline-block;
+        width: 50px;
+        font-weight: bold;
+        vertical-align: middle;
+      }
+
+      .inline-group {
+        display: flex;
+        align-items: center;
+      }
+
+      button {
+        background-color: #ff8c00;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        border-radius: 5px;
+        width: 100%;
+      }
+
+      button:hover {
+        background-color: #e07b00;
+      }
+
+      @media (max-width: 600px) {
+        .container {
+          width: 100%;
+          padding: 15px;
+        }
+
+        .inline-group {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .unit {
+          margin-top: -10px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+        <h3 style="text-align: center">Project Master Form</h3>
+
+    
+        <label for="projectName">Name of Project:</label>
+        <input type="text" id="projectName" formControlName="projectName" />
+
+        <label for="divisionName">Division Name:</label>
+        <input type="text" id="divisionName" formControlName="divisionName" />
+        
+       <label for="projectType">Project Type</label>
+        <select id="projectType" formControlName="projectType">
+          <option value="" disabled>Select</option>
+           
+          <!-- <option value=0>none</option> -->
+          <option value=1>EPC</option>
+          <option value=2>BOY</option>
+          <option value=3>PPP</option>
+           <option value=4>DBFOT</option>
+        </select>
+
+        <label for="tahsil">Tahsil:</label>
+        <select id="tahsil" formControlName="tahsil" class="form-control">
+          <option value="" disabled>Select Tahsil</option>
+          <option *ngFor="let tahsil of tahsils" [value]="tahsil.value">{{ tahsil.text }}</option>
+        </select>
+        <div *ngIf="projectForm.get('tahsil')?.invalid && projectForm.get('tahsil')?.touched" class="text-danger">Tahsil is required</div>
+
+        <label for="mouza">Mouza:</label>
+        <select id="mouza" formControlName="mouza" class="form-control">
+          <option value="" disabled>Select Mouza</option>
+          <option *ngFor="let mouza of mouzas" [value]="mouza.value">{{ mouza.text }}</option>
+        </select>
+        <div *ngIf="projectForm.get('mouza')?.invalid && projectForm.get('mouza')?.touched" class="text-danger">Mouza is required</div>
+
+        <label for="khasra">Khasra:</label>
+        <input type="text" id="khasra" formControlName="khasra" />
+
+        <label for="landArea">Land Area:</label>
+        <div style="display: flex; gap: 8px; align-items: center">
+          <input type="number" id="landArea" formControlName="landArea" placeholder="0.00" />
+
+          <select id="landAreaUnit" formControlName="landAreaUnit"  class="form-control" required>
+            <option value="" disabled>Select Unit</option>
+            <option *ngFor="let unit of units" [value]="unit.value">{{ unit.text }}</option>
+          </select>
+
+          <div *ngIf="projectForm.get('landAreaUnit')?.invalid && projectForm.get('landAreaUnit')?.touched" class="text-danger">
+            Unit is required
+          </div>
+        </div>
+
+        <label for="budgetHead">Budget Head:</label>
+        <input type="text" id="budgetHead" formControlName="budgetHead" />
+
+        <label for="projectCost">Project Cost:</label>
+        <div style="display: flex; gap: 8px">
+          <input type="number" id="projectCost" formControlName="projectCost" min="0" placeholder="Enter project cost" />
+          <select id="projectCostUnit" formControlName="projectCostUnit" required>
+            <option value="" disabled>Unit</option>
+            <option value="1">Rupees</option>
+            <option value="2">Thousand</option>
+            <option value="3">Lakh</option>
+            <option value="4">Crore</option>
+          </select>
+        </div>
+
+        <label for="timeLimit">Time Limit (in Months):</label>
+        <input type="number" id="timeLimit" formControlName="timeLimit" />
+
+
+        <label for="projectDept">Project Dept:</label>
+        <input type="text" id="projectDept" formControlName="projectDept" />
+ 
+        <label for="remark">Remark:</label>
+        <textarea id="remark" formControlName="remark" rows="3"></textarea>
+
+        <!-- <label for="orgId">Organization Id</label>
+        <input type="number" id="orgId" formControlName="orgId" /> -->
+         <label for="orgId">Organization Id</label>
+        <select id="orgId" formControlName="orgId">
+          <option value="" disabled>Select</option>
+          <option value=1>NIT</option>
+          <option value=2>NMRDA</option>
+        </select>
+
+
+        <label>Is Publish?</label>
+        <div style="display: flex; gap: 16px; align-items: center">
+          <span>Yes</span>
+          <input type="radio" value="1" formControlName="isPublish" />
+
+          <span>No</span>
+          <input type="radio" value="0" formControlName="isPublish" />
+        </div>
+
+        <label for="publishDate">Publish Date:</label>
+        <input type="date" id="publishDate" formControlName="publishDate" />
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>

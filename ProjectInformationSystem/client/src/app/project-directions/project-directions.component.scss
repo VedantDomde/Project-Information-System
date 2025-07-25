@@ -1,0 +1,219 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 60%;
+  margin: 50px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-top: 15px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.search-box {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+button {
+  background-color: #e67800;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.editdelete{
+  background: transparent;
+      border: none;
+      color: red;
+      cursor: pointer;
+      font-size: 18px;
+}
+button:disabled {
+  background-color: #ff8c00;
+  cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+  background-color: #ff8c00;
+}
+
+.submitted-data-table {
+  width: 100%;
+  margin-top: 30px;
+  border-collapse: collapse;
+}
+
+.submitted-data-table th,
+.submitted-data-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.submitted-data-table thead {
+  background-color: #ff8c00;
+  color: white;
+}
+
+.submitted-data-table tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.delete-icon {
+  color: #ff4d4d;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.delete-icon:hover {
+  color: #cc0000;
+}
+/* project-directions.component.css */
+
+// /* Layout */
+// .container {
+//   max-width: 800px;
+//   margin: 0 auto;
+//   padding: 2rem;
+// }
+
+// /* Headings */
+// h2 {
+//   text-align: center;
+//   margin-bottom: 1.5rem;
+//   font-size: 1.8rem;
+//   color: #333;
+// }
+
+// /* Form */
+// form {
+//   display: grid;
+//   gap: 1rem;
+//   grid-template-columns: 1fr 1fr;
+//   background-color: #f9f9f9;
+//   padding: 1.5rem;
+//   border-radius: 8px;
+//   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+// }
+
+// form div {
+//   display: flex;
+//   flex-direction: column;
+// }
+
+// label {
+//   font-weight: bold;
+//   margin-bottom: 0.3rem;
+//   color: #555;
+// }
+
+// input, select, textarea {
+//   padding: 0.5rem;
+//   border: 1px solid #ccc;
+//   border-radius: 4px;
+//   font-size: 1rem;
+// }
+
+// input[type="file"] {
+//   padding: 0.3rem;
+// }
+
+// button {
+//   grid-column: span 2;
+//   padding: 0.7rem;
+//   font-size: 1rem;
+//   font-weight: bold;
+//   background-color: #1976d2;
+//   color: white;
+//   border: none;
+//   border-radius: 4px;
+//   cursor: pointer;
+//   transition: background 0.3s ease;
+// }
+
+// button:hover {
+//   background-color: #125aa3;
+// }
+
+// /* Table */
+// table {
+//   width: 100%;
+//   margin-top: 2rem;
+//   border-collapse: collapse;
+//   font-size: 0.95rem;
+// }
+
+// th, td {
+//   padding: 0.75rem 1rem;
+//   border: 1px solid #ddd;
+//   text-align: center;
+// }
+
+// th {
+//   background-color: #f1f1f1;
+//   font-weight: bold;
+// }
+
+// tr:nth-child(even) {
+//   background-color: #fafafa;
+// }
+
+
+// .action-btn {
+//   margin: 0 0.25rem;
+//   padding: 0.3rem 0.6rem;
+//   border: none;
+//   border-radius: 4px;
+//   cursor: pointer;
+//   color: white;
+// }
+
+// .edit-btn {
+//   background-color: #4caf50;
+// }
+
+// .delete-btn {
+//   background-color: #f44336;
+// }
+
+// .edit-btn:hover {
+//   background-color: #3c8f41;
+// }
+
+// .delete-btn:hover {
+//   background-color: #d32f2f;
+// }

@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Technical Personnel Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+
+    form {
+      width: 50%;
+      margin: 50px auto;
+      padding: 30px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background-color: #fff;
+    }
+
+    h3 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight:bolder;
+      color: #444;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #e67800;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:disabled {
+      background-color:#e67800;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+
+<body>
+  <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+    <h3>Technical Personnel</h3>
+
+    <label>Personnel Type:</label>
+    <select title="personnelType" formControlName="personnelType" required>
+      <option [value]="null">Select</option>
+      <option [value]="1">Architect</option>
+      <option [value]="2">Consultant</option>
+      <option [value]="3">Contractor</option>
+      <option [value]="4">Quality Check</option>
+    </select>
+
+    <label>Personnel Name:</label>
+    <input title="personnelName" type="text" formControlName="personnelName" required />
+
+    <label>Contact Number:</label>
+    <input title="contactNumber" type="text" formControlName="contactNumber" required />
+
+    <label>Email:</label>
+    <input title="email" type="email" formControlName="email" required />
+
+    <label>License Number:</label>
+    <input title="licenseNumber" type="text" formControlName="licenseNumber" required />
+
+    <label>Contractor Type:</label>
+    <select title="contractorType" formControlName="contractorType" required>
+      <option [value]="null">Select</option>
+      <option [value]="1">Civil</option>
+      <option [value]="2">Electrical</option>
+      <option [value]="3">Garden</option>
+      <option [value]="4">Civil & Garden</option>
+    </select>
+
+    <label>Contractor Class:</label>
+    <select title="contractorClass" formControlName="contractorClass" required>
+      <option value="">Select</option>
+      <option value="classA">Class A</option>
+      <option value="classB">Class B</option>
+      <option value="classC">Class C</option>
+    </select>
+
+    <button type="submit" [disabled]="projectForm.invalid">Submit</button>
+  </form>
+</body>
+
+</html>

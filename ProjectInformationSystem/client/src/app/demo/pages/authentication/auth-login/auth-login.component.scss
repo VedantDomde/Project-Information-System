@@ -1,0 +1,139 @@
+// @import '../../../../../scss/settings/color-variables.scss';
+
+// .auth-main {
+//   position: relative;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   height: 100vh;
+//   width: 100%;
+
+  
+
+//   .auth-wrapper {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     height: 100%;
+//     width: 100%;
+
+//     &.v3 {
+//       .auth-form {
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: center;
+//         align-items: center;
+//         min-height: auto;
+//         background: rgba($white, 0.2);
+//         backdrop-filter: blur(16px);
+//         padding: 24px;
+//         border-radius: 10px;
+//       }
+//     }
+
+//     .auth-form {
+//       display: flex;
+//       justify-content: center;
+//       align-items: center;
+//       flex-grow: 1;
+
+//       .auth-header {
+//         display: flex;
+//         justify-content: center;
+//         width: 100%;
+//         margin-bottom: 20px;
+
+//         img {
+//           display: block;
+//           height: 70px;
+//         }
+//       }
+//       .auth-main {
+//   position: relative;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   height: 100vh;
+//   width: 100%;
+
+//   background-image: url('src/assets/login-bg.jpg'); // ✅ Your image path
+//   background-size: cover;       // ✅ Image ko full screen fit karega
+//   background-position: center;  // ✅ Image ko center align karega
+//   background-repeat: no-repeat; // ✅ Repeat nahi hoga
+
+
+//       .card {
+//         width: 100%;
+//         max-width: 450px;
+//         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+//         border-radius: 10px;
+//       }
+//     }
+//   }
+// }
+@import '../../../../../scss/settings/color-variables.scss';
+
+.auth-main {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+
+  
+
+  .auth-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+
+    &.v3 {
+      .auth-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: auto;
+        background: rgba($white, 0.2);
+        // backdrop-filter: blur(16px);
+        padding: 24px;
+        border-radius: 10px;
+      }
+    }
+
+    .auth-form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-grow: 1;
+
+      .auth-header {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-top: 20px;
+
+        img {
+          display: block;
+          height: 70px;
+        }
+      }
+
+      .card {
+        width: 100%;
+        max-width: 450px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+      }
+    }
+  }
+}
+
+
+
+
+
+

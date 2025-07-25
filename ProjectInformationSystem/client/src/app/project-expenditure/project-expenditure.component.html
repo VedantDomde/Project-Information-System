@@ -1,0 +1,71 @@
+<!-- Make sure this Font Awesome link is included in your index.html or main HTML -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<div class="container">
+  <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+    <h3 style="text-align: center;">Project Expenditure Form</h3>
+
+    <label for="receipt_date">Payment Date:</label>
+    <input type="date" id="receipt_date" formControlName="receipt_date" required />
+
+    <label for="receipt_amount">Amount (Rs.):</label>
+    <div class="amount-container">
+      <input
+        type="number"
+        id="receipt_amount"
+        formControlName="receipt_amount"
+        min="1"
+        required
+        placeholder="Enter amount"
+      />
+      <select id="cost_unit" formControlName="cost_unit" required>
+        <option [value]="1">Rupees</option>
+        <option [value]="2">Thousand</option>
+        <option [value]="3">Lakh</option>
+        <option [value]="4">Crore</option>
+      </select>
+    </div>
+
+    <div class="button-group">
+      <button type="button" class="new-btn" (click)="openNewForm()">New</button>
+      <button type="submit" class="submit-btn">{{ isEditing ? 'Update' : 'Submit' }}</button>
+      </div>
+  </form>
+</div>
+<!-- Submitted Fund Table -->
+<div class="container" *ngIf="submittedFunds.length > 0">
+  <h3 style="text-align: center; ">Submitted Funds</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Project ID</th>
+        <th>fund ID</th>
+        <th>Fund Received Date</th>
+        <th>amount </th>
+        <th>cost unit</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let fund of submittedFunds; let i = index">
+        <td>{{ fund.projectId }}</td>
+        <td>{{ fund.Fund_SrNo }}</td>
+        <td>{{ fund.received_date }}</td>
+        <td>{{ fund.receipt_amount }}</td>
+        <!-- <td>{{ fund.cost_unit }}</td> -->
+         <td>
+  {{ fund.cost_unit == 1 ? 'Rupees' : 
+     fund.cost_unit == 2 ? 'Thousand' : 
+     fund.cost_unit == 3 ? 'Lakh' : 
+     fund.cost_unit == 4 ? 'Crore' : 'Unknown' }}
+</td>
+        <td>
+          <!-- <button class="delete-btn" (click)="deleteFund(fund.Fund_SrNo)"><i class="fas fa-trash"></i></button> -->
+          <button class="delete-btn" style="color: blue;" (click)="editFund(fund)"><i class="fas fa-edit"></i></button>
+           <button class="delete-btn" (click)="deleteFund(fund.Fund_SrNo)"><i class="fas fa-trash"></i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Information Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+
+    .form-container {
+      background-color: #fff;
+      padding: 30px;
+      max-width: 600px;
+      margin: auto;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    select {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: #ff8c00;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #e89023;
+    }
+
+    .data-table {
+      margin-top: 40px;
+      max-width: 100%;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #ff8c00;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h3 style="text-align: center;">Search Criteria</h3>
+    <form id="projectForm">
+      <div class="form-group">
+        <label for="nameOfWork">Name of Work</label>
+        <input type="text" id="nameOfWork" name="nameOfWork" required />
+      </div>
+
+      <div class="form-group">
+        <label for="mouza">Mouza</label>
+        <select id="mouza" name="mouza" required>
+          <option value="">Select </option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="khasra">Khasra</label>
+        <select id="khasra" name="khasra" required>
+          <option value="">Select </option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="budgetHead">Budget Head</label>
+        <select id="budgetHead" name="budgetHead" required>
+          <option value="">Select </option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="divisionName">Division Name</label>
+        <select id="divisionName" name="divisionName" required>
+          <option value="">Select </option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="projectType">Project Type</label>
+        <select id="projectType" name="projectType" required>
+          <option value="">Select </option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="projectBy">Project By</label>
+        <select id="projectBy" name="projectBy" required>
+          <option value="">Select</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+
+      <div class="form-group" style="text-align: center;">
+        <button type="submit">Submit</button>
+         <button type="button" class="btn btn-secondary" style="margin-left: 10px;" (click)="goToHomePage()">New</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="data-table">
+    <h3>Search Result</h3>
+    <table id="dataTable">
+      <thead>
+        <tr>
+          <th>Name of Work</th>
+          <th>Mouza</th>
+          <th>Khasra</th>
+          <th>Budget Head</th>
+          <th>Division Name</th>
+          <th>Project Type</th>
+          <th>Project By</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Submitted data will appear here -->
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    const form = document.getElementById('projectForm');
+    const tableBody = document.querySelector('#dataTable tbody');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form from submitting normally
+
+      // Get values from form
+      const nameOfWork = document.getElementById('nameOfWork').value;
+      const mouza = document.getElementById('mouza').value;
+      const khasra = document.getElementById('khasra').value;
+      const budgetHead = document.getElementById('budgetHead').value;
+      const divisionName = document.getElementById('divisionName').value;
+      const projectType = document.getElementById('projectType').value;
+      const projectBy = document.getElementById('projectBy').value;
+
+      // Create new table row
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${nameOfWork}</td>
+        <td>${mouza}</td>
+        <td>${khasra}</td>
+        <td>${budgetHead}</td>
+        <td>${divisionName}</td>
+        <td>${projectType}</td>
+        <td>${projectBy}</td>
+      `;
+
+      // Append row to table
+      tableBody.appendChild(row);
+
+      // Optional: Reset form
+      form.reset();
+    });
+
+   
+  </script>
+
+</body>
+</html>

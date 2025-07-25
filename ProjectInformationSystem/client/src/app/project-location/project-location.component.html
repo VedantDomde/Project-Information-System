@@ -1,0 +1,45 @@
+
+<div class="container">
+  <h3 style="text-align: center;">Enter Project Location</h3>
+
+  <form [formGroup]="locationForm" (ngSubmit)="onSubmit()">
+    <div style="margin-top: 10px;">
+      <label for="projectUrl">Project URL:</label>
+      <input
+        type="url"
+        id="projectUrl"
+        formControlName="projectUrl"
+        required
+      />
+      <div
+        *ngIf="locationForm.get('projectUrl')?.invalid && locationForm.get('projectUrl')?.touched"
+        style="color: red;"
+      >
+        Project URL is required and must be valid
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      style="margin-top: 10px;"
+      [disabled]="locationForm.invalid"
+    >
+      Submit
+    </button>
+  </form>
+
+  <!-- ✅ Only show this after submission -->
+  <div *ngIf="submitted" style="margin-top: 30px;">
+    <h3>Project Location</h3>
+    <div style="display: flex; justify-content: space-between; align-items: center; border: 1px solid #ccc; padding: 10px;">
+      <span> Project Location Link</span> 
+      <a
+        [href]="locationForm.get('projectUrl')?.value"
+        target="_blank"
+        style="text-decoration: none; background-color: #007bff; color: white; padding: 5px 10px; border-radius: 4px;"
+      >
+        View Location
+      </a>
+    </div>
+  </div>
+</div>

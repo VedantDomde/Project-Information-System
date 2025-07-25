@@ -1,0 +1,32 @@
+<div class="projects-container">
+  <div class="project" *ngFor="let proj of projects">
+    <h3 style="text-align: center;">{{ proj.PROJECT_NAME }}</h3>
+    <p class="status" *ngIf="proj.ISPUBLISH === 1">Status: Published</p>
+
+    <p class="info"><strong>Organization:</strong> {{ proj.ORG_DESC }}</p>
+    <p class="info"><strong>Division:</strong> {{ proj.DIVISION_NAME }}</p>
+    <p class="info"><strong>Project Cost:</strong> ₹{{ proj.PROJECT_COST }}</p>
+    <p class="info"><strong>Project Type:</strong> {{ proj.PROJECT_TYPE_DESC }}</p>
+    <p class="info"><strong>Land Area:</strong> {{ proj.LAND_AREA }} {{ proj.UNIT_DESC }}</p>
+    <p class="info"><strong>Tahsil:</strong> {{ proj.TAHSIL_NAME }}</p>
+    <p class="info"><strong>Mouza:</strong> {{ proj.MOUZA }}</p>
+    <p class="info"><strong>Time Limit:</strong> {{ proj.PROJECT_TIME_LIMIT }} Months</p>
+    <p class="info"><strong>Remark:</strong> {{ proj.REMARK }}</p>
+    
+    <div class="progress">
+      <p>Proposed Work: 0%</p>
+      <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+      <p>Ongoing Work: 0%</p>
+      <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+      <p>Completed Work: 0%</p>
+      <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+    </div>
+
+    <img src="assets/images/user/default.jpg" alt="Project Image" />
+    <p><strong>Location:</strong>
+      <a href="https://www.google.com/maps?q={{ proj.MOUZA }}+Nagpur" target="_blank">
+        View on Google Maps
+      </a>
+    </p>
+  </div>
+</div>

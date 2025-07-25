@@ -1,0 +1,144 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta formControlName="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Phases Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .form-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+            margin-top: 50px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-top: 5px;
+        }
+
+        button {
+            background-color: #ff8c00;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background-color: #e07b00;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="form-container">
+        <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+            <h3 style="text-align: center;">Project Phases</h3>
+            <form>
+                <!-- <label for="phaseId">Phase ID:</label>
+                <input type="text" id="phaseId" formControlName="phaseId" required> -->
+
+                <!-- <label for="phaseSequence">Phase Sequence:</label>
+                <input type="text" id="phaseSequence" formControlName="phaseSequence" required>
+
+                <label for="phaseDescription">Phase Description:</label>
+                <input type="text" id="phaseDescription" formControlName="phaseDescription" required> -->
+<!-- 
+                <label>Phase Mile Stone:</label>
+                <div class="radio-group">
+                    <input type="radio" id="workOrderDate" formControlName="mileStone" value="Work Order Date"> <label
+                        for="workOrderDate">Work Order Date</label>
+                    <input type="radio" id="commencementDate" formControlName="mileStone" value="Commencement Date">
+                    <label for="commencementDate">Commencement Date</label>
+                    <input type="radio" id="projectCompletion" formControlName="mileStone" value="Project Completion">
+                    <label for="projectCompletion">Project Completion</label>
+                </div> -->
+
+                <!-- <label>Is Appointment of Technical Personnel?</label>
+                <div class="radio-group">
+                    <input type="radio" id="yes" formControlName="appointment" value="Yes"> <label for="yes">Yes</label>
+                    <input type="radio" id="no" formControlName="appointment" value="No"> <label for="no">No</label>
+                </div>
+
+                <button type="submit">Submit</button>
+            </form>
+        </form>
+    </div> --> -->
+    <div class="form-container">
+  <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+    <h3 style="text-align: center;">Project Phases</h3>
+
+    <label for="phaseSequence">Phase Sequence:</label>
+    <input type="number" id="phaseSequence" formControlName="phasesSequence" required />
+
+    <label for="phaseDescription">Phase Description:</label>
+    <input type="text" id="phaseDescription" formControlName="phaseDescription" required />
+
+    <label>Phase Mile Stone:</label>
+    <div class="radio-group">
+      <label>
+        <input type="radio" formControlName="mileStone" [value]="1" /> Work Order Date
+      </label>
+      <label>
+        <input type="radio" formControlName="mileStone" [value]="2" /> Commencement Date
+      </label>
+      <label>
+        <input type="radio" formControlName="mileStone" [value]="3" /> Project Completion
+      </label>
+    </div>
+
+    <label>Is Appointment of Technical Personnel?</label>
+    <div class="radio-group">
+      <label>
+        <input type="radio" formControlName="appointment" [value]="1" /> Yes
+      </label>
+      <label>
+        <input type="radio" formControlName="appointment" [value]="0" /> No
+      </label>
+    </div>
+
+    <button type="submit" [disabled]="projectForm.invalid">Submit</button>
+  </form>
+</div>
+
+</body>
+
+</html>   

@@ -1,0 +1,85 @@
+<!-- <ul class="list-unstyled">
+  <li class="pc-h-item pc-sidebar-collapse">
+    <a
+      href="javascript:"
+      title="click to menu collapse"
+      class="pc-head-link ms-0"
+      [ngClass]="{ on: navCollapsed() }"
+      id="sidebar-hide mobile-collapse"
+      (click)="navCollapse()"
+    >
+      @if (navCollapsed() === true) {
+        <i antIcon type="menu-unfold" theme="outline"></i>
+      } @else {
+        <i antIcon type="menu-fold" theme="outline"></i>
+      }
+    </a>
+  </li>
+   <li class="pc-h-item d-none d-md-inline-flex">
+    <a href="javascript:" class="b-brand">
+      <div class="header-container" style="text-align: center;">
+        <div class="left-section">
+          <img src="assets/images/user/NIT_Final.jpg" alt="NIT Logo" class="nit-logo" style="height: 80px; width: auto;" >
+          <div class="since-text">Since 1936</div>
+        </div>
+        <div class="right-section">
+          <div class="main-title">NAGPUR IMPROVEMENT TRUST, NAGPUR</div>
+          <div class="subtitle">LOCAL PLANNING AUTHORITY CONSTITUTED UNDER URBAN DEVELOPMENT DEPARTMENT OF GOM</div>
+          <div class="address">(STATION ROAD, SADAR, NAGPUR-440001.)</div>
+        </div>
+      </div>
+    </a>
+  </li>
+
+  <li class="pc-h-item d-none d-md-inline-flex">
+    <a href="javascript:" class="b-brand">
+      <img src="assets/images/logo2.jpg" alt="theme-logo" style="height: 100px; width: auto;" />
+    </a>
+  </li>  
+</ul>
+   -->
+<ul class="list-unstyled w-100" style="text-align: center;">
+  <!-- Sidebar Collapse Button -->
+  <li class="pc-h-item pc-sidebar-collapse">
+    <a
+      href="javascript:"
+      title="click to menu collapse"
+      class="pc-head-link ms-0"
+      [ngClass]="{ on: navCollapsed() }"
+      id="sidebar-hide mobile-collapse"
+      (click)="navCollapse()"
+    >
+      @if (navCollapsed() === true) {
+        <i antIcon type="menu-unfold" theme="outline"></i>
+      } @else {
+        <i antIcon type="menu-fold" theme="outline"></i>
+      }
+    </a>
+  </li>
+
+  <!-- Header: Logo + Text -->
+  <li class="pc-h-item d-none d-md-flex justify-content-center w-100">
+    <a href="javascript:" class="b-brand w-100">
+      <div class="header-wrapper">
+        <div class="header-container">
+          <div class="left-section">
+            <img src="assets/images/user/NIT_Final.jpg" alt="NIT Logo" class="nit-logo" />
+            <div class="since-text">Since 1936</div>
+          </div>
+          <div class="right-section">
+            <div class="main-title">NAGPUR IMPROVEMENT TRUST, NAGPUR</div>
+            <div class="subtitle">LOCAL PLANNING AUTHORITY CONSTITUTED UNDER URBAN DEVELOPMENT DEPARTMENT OF GOM</div>
+            <div class="address">(STATION ROAD, SADAR, NAGPUR-440001.)</div>
+          </div>
+        </div>
+      </div>
+    </a>
+  </li>
+
+  <!-- Bottom Logo -->
+  <li class="pc-h-item d-none d-md-flex justify-content-right">
+    <a href="javascript:" class="b-brand">
+      <img src="assets/images/logo2.jpg" alt="theme-logo" class="bottom-logo" />
+    </a>
+  </li>
+</ul>

@@ -1,0 +1,130 @@
+<!-- <div class="container">
+  <form [formGroup]="directionsForm" (ngSubmit)="onSubmit()">
+    <h3 class="form-title">Project Directions</h3>
+
+    <label for="authorityId">Select Authority</label>
+    <select id="authorityId" formControlName="authorityId" required>
+      <option value="" disabled>Select Authority</option>
+      <option *ngFor="let auth of authorities" [value]="auth.id">{{ auth.name }}</option>
+    </select>
+
+    <label for="shortNote">Short Note on Directions:</label>
+    <textarea id="shortNote" formControlName="shortNote" rows="3"></textarea>
+
+    <label for="directionDate">Direction Date:</label>
+    <input type="date" id="directionDate" formControlName="directionDate" required />
+
+    <label for="actionDate">Action Date:</label>
+    <input type="date" id="actionDate" formControlName="actionDate" />
+
+    <label for="actionDesc">Action Taken:</label>
+    <textarea id="actionDesc" formControlName="actionDesc" rows="3"></textarea>
+
+    <label for="fileUpload">Upload File:</label>
+    <input type="file" id="fileUpload" (change)="onFileChange($event)" />
+
+    <div class="button-group">
+      <button type="button" (click)="onNew()">New</button>
+      <button type="submit" [disabled]="directionsForm.invalid">Submit</button>
+    </div>
+  </form>
+
+  <table *ngIf="submittedData" class="submitted-data-table">
+    <thead>
+      <tr>
+        <th>Authority</th>
+        <th>Short Note</th>
+        <th>Direction Date</th>
+        <th>Action Date</th>
+        <th>Action Taken</th>
+        <th>File Name</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ getAuthorityName(submittedData.authorityId) }}</td>
+        <td>{{ submittedData.shortNote }}</td>
+        <td>{{ submittedData.directionDate | date }}</td>
+        <td>{{ submittedData.actionDate | date }}</td>
+        <td>{{ submittedData.actionDesc }}</td>
+        <td>{{ submittedData.fileName || 'No file' }}</td>
+        <td><i class="fas fa-trash delete-icon" (click)="deleteSubmittedData()">delete</i></td>
+      </tr>
+    </tbody>
+  </table>
+</div> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<div class="container">
+  <form [formGroup]="directionsForm" (ngSubmit)="onSubmit()">
+    <h3 class="form-title">Project Directions</h3>
+
+    <label for="authorityId">Select Authority</label>
+    <select id="authorityId" formControlName="authorityId" required>
+      <option value="" disabled>Select Authority</option>
+      <option *ngFor="let auth of authorities" [value]="auth.id">{{ auth.name }}</option>
+    </select>
+
+    <label for="shortNote">Short Note on Directions:</label>
+    <textarea id="shortNote" formControlName="shortNote" rows="3"></textarea>
+
+    <label for="directionDate">Direction Date:</label>
+    <input type="date" id="directionDate" formControlName="directionDate" required />
+
+    <label for="actionDate">Action Date:</label>
+    <input type="date" id="actionDate" formControlName="actionDate" />
+
+    <label for="actionDesc">Action Taken:</label>
+    <textarea id="actionDesc" formControlName="actionDesc" rows="3"></textarea>
+
+    <label for="fileUpload">Upload File:</label>
+    <input type="file" id="fileUpload" (change)="onFileChange($event)"  #fileInput [required]="!isUpdateMode" />
+
+    <div class="button-group">
+      <!-- <button type="button" (click)="onNew()">New</button>
+      <button type="submit" [disabled]="directionsForm.invalid">Submit</button> -->
+         <button type="button" (click)="onNew()">New</button>
+      <button type="submit" [disabled]="!directionsForm.valid || (!selectedFile && !isUpdateMode)">
+        {{ isUpdateMode ? 'Update' : 'Submit' }}</button>
+    </div>
+  </form>
+
+  <table *ngIf="submittedData.length > 0" class="submitted-data-table">
+    <thead>
+      <tr>
+      <th>project_id</th> 
+      <th>authority_id</th>
+       <th>direction_srno</th>
+  <th>direction_date</th>
+  <th>directions_short_note</th>
+  <th>action_date</th>
+  <th>action_desc</th>
+  <th>file_name</th>
+  <!-- <th>file_path</th> -->
+  <th>action</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let entry of submittedData">
+        <td>{{ entry.project_id }}</td>
+        <td>{{ entry.authority_id }}</td> 
+        <td>{{ entry.direction_srno }}</td>
+        <!-- <td>{{ getAuthorityName(entry.authority_id) }}</td> -->
+        <td>{{ entry.directions_short_note }}</td>
+        <td>{{ entry.direction_date | date }}</td>
+        <td>{{ entry.action_date | date }}</td>
+        <td>{{ entry.action_desc }}</td>
+        <td>{{ entry.file_name || 'No file' }}</td>
+        <!-- <td>{{ entry.file_path || 'No file' }}</td> -->
+        <td>
+          <!-- <i class="fas fa-edit" (click)="onEdit(entry)" style="cursor:pointer; margin-right: 10px;"></i>
+          <i class="fas fa-trash delete-icon" (click)="onDelete(entry.direction_srno)"></i>
+        </td> -->
+         <button  class="editdelete" style="color: blue;" (click)="onEdit(entry)"><i class="fas fa-edit"></i></button>
+            <button class="editdelete" (click)="onDelete(entry.direction_srno)"><i class="fas fa-trash"></i></button>
+      </tr>
+    </tbody>
+  </table>
+</div>

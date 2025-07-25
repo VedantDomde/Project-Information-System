@@ -1,0 +1,191 @@
+// // .header-container {
+// //     display: flex;
+// //     align-items: center;
+// //     padding: 10px;
+// // }
+
+// // .left-section {
+// //     display: flex;
+// //     flex-direction: column;
+// //     align-items: center;
+// //     margin-right: 15px;
+// // }
+
+// // .nit-logo {
+// //     width: 80px;
+// //     height: 80px;
+// //     object-fit: contain;
+// // }
+
+// // .since-text {
+// //     font-size: 12px;
+// //     color: #0077b6; /* Blue text */
+// //     font-weight: bold;
+// //     margin-top: 5px;
+// // }
+
+// // .right-section {
+// //     text-align: center;
+// // }
+
+// // .main-title {
+// //     font-size: 35px;
+// //     font-weight: bold;
+// //     color: #ff6600; /* Orange title */
+// // }
+
+// // .subtitle {
+// //     font-size: 12px;
+// //     color: #0077b6; /* Blue subtext */
+// //     margin-top: 4px;
+// //     letter-spacing: 1px;
+// //     font-weight: bold;
+// // }
+
+// // .address {
+// //     font-size: 12px;
+// //     color: #0077b6; /* Blue address */
+// //     margin-top: 2px;
+// //     font-weight: bold;
+// // }
+// .header-container {
+//     display: flex;
+//     align-items: center;
+//     padding: 10px;
+    
+    
+// }
+
+// .left-section {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     margin-right: 15px;
+// }
+
+// .nit-logo {
+//     width: 80px;
+//     height: 80px;
+//     object-fit: contain;
+// }
+
+// .since-text {
+//     font-size: 12px;
+//     color: #0077b6; /* Blue text */
+//     font-weight: bold;
+//     margin-top: 5px;
+// }
+
+// .right-section {
+//     text-align: center;
+// }
+
+// .main-title {
+//     font-size: 35px;
+//     font-weight: bold;
+//     color: #ff6600; /* Orange title */
+// }
+
+// .subtitle {
+//     font-size: 12px;
+//     color: #0077b6; /* Blue subtext */
+//     margin-top: 4px;
+//     letter-spacing: 1px;
+//     font-weight: bold;
+// }
+
+// .address {
+//     font-size: 12px;
+//     color: #0077b6; /* Blue address */
+//     margin-top: 2px;
+//     font-weight: bold;
+// }
+.header-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+   align-items: center;
+   margin-right: 0px;
+    margin-left: 70px;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  flex-wrap: wrap;
+  max-width: 1200px; /* Optional: to limit wide screens */
+  font-size:large;
+  // margin: 0 auto;
+  margin-left: 170px;
+}
+
+.left-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.nit-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.since-text {
+  font-size: 12px;
+  color: #0077b6;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.right-section {
+  text-align: center;
+  max-width: 800px;
+}
+
+.main-title {
+  font-size: 35px;
+  font-weight: bold;
+  color: #ff6600;
+}
+
+.subtitle {
+  font-size: 12px;
+  color: #0077b6;
+  margin-top: 4px;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.address {
+  font-size: 12px;
+  color: #0077b6;
+  margin-top: 2px;
+  font-weight: bold;
+}
+
+.bottom-logo {
+  height: 100px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Responsive for tablets and below */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .left-section {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .main-title {
+    font-size: 24px;
+  }
+}

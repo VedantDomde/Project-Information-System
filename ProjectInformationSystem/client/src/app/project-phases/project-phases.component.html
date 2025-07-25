@@ -1,0 +1,130 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<div class="container">
+  <h3 style="text-align: center;">Project Phases</h3>
+
+  <form [formGroup]="projectForm">
+    <div class="form-navbar">
+      
+      <div class="form-item">
+        <label for="XPhase_Date">Date</label>
+        <input type="date" id="XPhase_Date" formControlName="XPhase_Date">
+      </div>
+
+      <div class="form-item">
+        <label for="XPhase_ID">Phase</label>
+        <select id="XPhase_ID" formControlName="XPhase_ID">
+          <option value="" disabled>Select</option>
+          <!-- <option value="Planning">Planning</option>
+          <option value="Execution">Execution</option> -->
+          <option *ngFor="let item of submittedFunds" [value]="item.phase_id">{{ item.phase_id }}-{{ item.phase_description }}</option>
+          
+        </select>
+      </div>
+
+<div *ngIf="selectedPhase?.isAppointment == 1" class="form-item">
+  <label for="XTech_ID">Appointment</label>
+  <select type="text" id="XTech_ID" formControlName="XTech_ID">
+    <option value="" disabled>Select</option>
+          
+          <option *ngFor="let item of submittechnical" [value]="item.tech_id">{{ item.Personnel_Type }}-{{ item.Personnel_Name }}</option>
+          
+    </select>
+</div>
+
+
+      <div class="form-item">
+        <label for="XRemark">Remark</label>
+        <textarea id="XRemark" formControlName="XRemark" rows="1"></textarea>
+      </div>
+
+      <div class="form-item">
+        
+        <button type="button" (click)="saveProjectPhase()">Submit</button>
+        <button type="button" class="new-btn" (click)="openNewForm()">New</button>
+      </div>
+    </div>
+  </form>
+
+  <div *ngIf="projectPhasesData.length > 0" class="submitted-section">
+    <h4>Saved Project Phases</h4>
+    <table>
+      <thead>
+        <tr>
+          
+          <th>Date</th>
+          <th>Phase</th>
+          <th>Appointment</th>
+          <th>Remark</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let phase of projectPhasesData; let i = index">
+         
+          <td>{{ phase.XPhase_Date }}</td>
+          <td>{{ phase.XPhase_ID }}</td>
+          <td>{{ phase.XTech_ID }}</td>
+          <td>{{ phase.XRemark }}</td>
+          <td>
+            <i class="fa fa-trash delete-icon" (click)="deleteProjectPhase(i)" title="Delete"></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div> 
+
+  <!-- Document Section -->
+  <div *ngIf="showDocumentSection" class="card">
+    <h3>Document to Attach</h3>
+
+    <form [formGroup]="documentForm" enctype="multipart/form-data">
+      <div class="form-navbar">
+       
+        <div class="form-item">
+          <label for="document_name">Document Name</label>
+          <input type="text" id="document_name" formControlName="document_name">
+        </div>
+
+        <div class="form-item">
+          <label for="files">File</label>
+          <input type="file" id="files" 
+          (change)="onFileChange($event)">
+        </div>
+
+        <div class="form-item">
+          <button type="button" (click)="saveDocument()">Submit</button>
+        </div>
+      </div>
+    </form>
+
+    <!-- Documents Table -->
+    <div *ngIf="documentData.length > 0" class="submitted-section">
+      <h4>Saved Documents</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Sr No</th>
+            <th>Document Name</th>
+            <th>File Name</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let doc of documentData; let i = index">
+            <td>{{ doc.phase_srno }}</td>
+            <td>{{ doc.document_name }}</td>
+            <td>{{ doc.files }}</td>
+            <td>
+              <i class="fa fa-trash delete-icon" (click)="deleteDocument(i)" title="Delete"></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div style="margin-top: 20px; text-align: center;">
+    <button type="button" (click)="openProjectPhasesForm()">New Phase</button>
+  </div>
+</div>

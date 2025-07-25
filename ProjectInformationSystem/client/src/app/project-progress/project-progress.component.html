@@ -1,0 +1,32 @@
+<div class="progress-container">
+  <h3 style="text-align: center;">Project Progress</h3>
+
+  <form [formGroup]="progressForm" (ngSubmit)="submitProgress()" class="form-section">
+    <label for="Percentage">Enter Progress Percentage:</label>
+    <input
+      type="number"
+      id="Percentage"
+      formControlName="Percentage"
+      placeholder="Enter percentage completed"
+    />
+    <div *ngIf="progressForm.controls['Percentage'].invalid && progressForm.controls['Percentage'].touched" style="color: red;">
+      Percentage must be between 0 and 100.
+    </div>
+
+    <button type="submit" [disabled]="progressForm.invalid">Submit</button>
+  </form>
+
+  <div *ngIf="savedPercentage !== null" class="progress-display">
+    <h4>Progress for Project ID: {{ savedProjectId }}</h4>
+    <div class="progress-bar-background">
+      <div
+        class="progress-bar-fill"
+        [style.width.%]="savedPercentage"
+        [style.backgroundColor]="getColor(savedPercentage)"
+      >
+        {{ savedPercentage }}%
+      </div>
+    </div>
+    <div class="percentage-label">{{ savedPercentage }}% Complete</div>
+  </div>
+</div>

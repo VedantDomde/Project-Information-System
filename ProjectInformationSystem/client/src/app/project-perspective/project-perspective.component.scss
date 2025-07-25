@@ -1,0 +1,161 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #170f0f;
+  padding: 20px;
+}
+
+.form-container {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: auto;
+  margin-top: 50px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+  text-align: center;
+  color: #333;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #444;
+}
+
+select,
+input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Center the buttons side-by-side */
+.button-group {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  gap: 10px;               /* Space between buttons */
+  margin-top: 20px;
+}
+
+.submit-btn {
+  background-color: #e67800;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #ff8c00;
+}
+
+.new-btn {
+  background-color:#e67800;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.new-btn:hover {
+  background-color:#ff8c00;
+}
+button {
+  // margin-top: 20px;
+  // // background-color: #ff8c00;
+  // color: white;
+  // border: none;
+  // font-size: 16px;
+  // cursor: pointer;
+  background: transparent;
+      border: none;
+      color: red;
+      cursor: pointer;
+      font-size: 18px;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.table-container {
+  margin-top: 30px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+thead {
+  background-color: #ff8c00;
+  color: white;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.delete-icon {
+  cursor: pointer;
+  font-size: 20px;
+  color: #dc3545;
+}
+
+.delete-icon:hover {
+  color: #c82333;
+}
+
+// table {
+//   width: 100%;
+//   border-collapse: collapse;
+//   margin-top: 20px;
+// }
+
+// table th,
+// table td {
+//   border: 1px solid #ddd;
+//   padding: 10px;
+//   text-align: center;
+// }
+
+// table th {
+//   background-color: #f2f2f2;
+// }
+
+// .delete-btn {
+//   background-color: #dc3545;
+//   color: white;
+//   border: none;
+//   padding: 6px 10px;
+//   font-size: 14px;
+//   border-radius: 4px;
+//   cursor: pointer;
+// }
+
+// .delete-btn i.fa-trash {
+//   font-size: 16px;
+// }
+
+// .delete-btn:hover {
+//   background-color: #c82333;
+// }

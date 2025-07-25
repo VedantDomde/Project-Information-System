@@ -1,0 +1,60 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<div class="container">
+  <form [formGroup]="projectForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+    <h3 style="text-align: center;">Project Correspondence</h3>
+
+    <label>Date:</label>
+    <input type="date" formControlName="Correspondance_Date" required>
+
+    <label>Subject:</label>
+    <input type="text" formControlName="Subject" required>
+
+    <label>Description:</label>
+    <textarea formControlName="Desc" rows="3" required></textarea>
+
+    <label>Attach Document:</label>
+    <input type="file" (change)="onFileChange($event)"  #fileInput [required]="!isUpdateMode" />
+
+    <div class="button-group">
+      <button type="button" (click)="onNew()">New</button>
+      <button type="submit" [disabled]="!projectForm.valid || (!selectedFile && !isUpdateMode)">
+        {{ isUpdateMode ? 'Update' : 'Submit' }}
+      </button>
+    </div>
+  </form>
+
+  <div *ngIf="submittedData.length > 0">
+    <h4>Submitted Data</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>Project ID</th>
+          <th>SrNo</th>
+          <th>Date</th>
+          <th>Subject</th>
+          <th>Description</th>
+          <th>File Name</th>
+          <!-- <th>File Path</th> -->
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of submittedData">
+          <td>{{ data.projectId }}</td>
+          <td>{{ data.Correspondence_SrNo }}</td>
+          <td>{{ data.Correspondance_Date | date: 'yyyy-MM-dd' }}</td>
+          <td>{{ data.Subject }}</td>
+          <td>{{ data.Desc }}</td>
+          <td>{{ data.fileName }}</td>
+          <!-- <td>{{ data.filePath }}</td> -->
+          <td>
+            <button  class="editdelete" style="color: blue;" (click)="onEdit(data)"><i class="fas fa-edit"></i></button>
+            <button class="editdelete" (click)="onDelete(data.Correspondence_SrNo)"><i class="fas fa-trash"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
